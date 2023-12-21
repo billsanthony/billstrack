@@ -28,9 +28,12 @@ function searchAthlete() {
 
     if (filteredAthletes.length > 0) {
         resultBox.innerHTML = '<h3>Search Results:</h3>';
+        resultBox.innerHTML += '<table>';
+        resultBox.innerHTML += '<tr><th>Name</th><th>Sport</th><th>Gender</th><th>Age</th></tr>';
         for (const athlete of filteredAthletes) {
-            resultBox.innerHTML += `<p>${athlete.name} - ${athlete.sport} - ${athlete.gender} - ${athlete.age} years old</p>`;
+            resultBox.innerHTML += `<tr><td>${athlete.name}</td><td>${athlete.sport}</td><td>${athlete.gender}</td><td>${athlete.age}</td></tr>`;
         }
+        resultBox.innerHTML += '</table>';
     } else {
         resultBox.innerHTML = '<p>No results found.</p>';
     }
@@ -38,34 +41,21 @@ function searchAthlete() {
 
 function showRandomPerformances() {
     const randomAthlete = generateRandomAthlete();
-
-    const performanceTableBody = document.getElementById('performanceTableBody');
-    performanceTableBody.innerHTML = '';
-
-    // Display in a table
-    const row = document.createElement('tr');
-    row.innerHTML = `
-        <td>${randomAthlete.name}</td>
-        <td>${randomAthlete.performance.metric}</td>
-        <td>${randomAthlete.performance.value}</td>
-    `;
-    performanceTableBody.appendChild(row);
+    displayResult(randomAthlete);
 }
 
 function showNewTabPerformances() {
     const randomAthlete = generateNewTabRandomAthlete();
+    displayResult(randomAthlete);
+}
 
-    const performanceTableBody = document.getElementById('performanceTableBody');
-    performanceTableBody.innerHTML = '';
-
-    // Display in a table
-    const row = document.createElement('tr');
-    row.innerHTML = `
-        <td>${randomAthlete.name}</td>
-        <td>${randomAthlete.performance.metric}</td>
-        <td>${randomAthlete.performance.value}</td>
-    `;
-    performanceTableBody.appendChild(row);
+function displayResult(athlete) {
+    const resultBox = document.getElementById('resultBox');
+    resultBox.innerHTML = '<h3>Result:</h3>';
+    resultBox.innerHTML += '<table>';
+    resultBox.innerHTML += '<tr><th>Name</th><th>Sport</th><th>Gender</th><th>Age</th></tr>';
+    resultBox.innerHTML += `<tr><td>${athlete.name}</td><td>${athlete.sport}</td><td>${athlete.gender}</td><td>${athlete.age}</td></tr>`;
+    resultBox.innerHTML += '</table>';
 }
 
 function generateRandomAthlete() {
