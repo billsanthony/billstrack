@@ -5,21 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Athlete Performance Tracker</title>
     <style>
-        /* Your existing styles... */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        input, select {
+            padding: 8px;
+            margin-right: 20px;
+            width: 200px; /* Adjust width as needed */
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #searchForm {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #performanceList {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #performanceTable {
+            margin-top: 20px;
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #performanceTable th, #performanceTable td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
 
         /* Add some styling for input fields */
-        input {
-            padding: 8px;
-            margin-right: 20px;
-            width: 200px; /* Adjust width as needed */
-        }
-
-        /* Add styling for dropdowns */
-        select {
-            padding: 8px;
-            margin-right: 20px;
-            width: 200px; /* Adjust width as needed */
-        }
     </style>
 </head>
 <body>
