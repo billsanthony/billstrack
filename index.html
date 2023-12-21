@@ -1,111 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Athlete Performance Tracker</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 20px;
-            background-color: #f5f5f5;
-        }
-
-        h1 {
-            color: #333;
-            text-align: center;
-        }
-
-        input, select {
-            padding: 8px;
-            margin-right: 20px;
-            width: 200px; /* Adjust width as needed */
-        }
-
-        button {
-            padding: 10px;
-            background-color: #4caf50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        #searchForm {
-            margin-top: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        #performanceList {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        #performanceTable {
-            margin-top: 20px;
-            width: 100%;
-            border-collapse: collapse;
-            background-color: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        #performanceTable th, #performanceTable td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
-
-        /* Add some styling for input fields */
-    </style>
+    <!-- Your existing head content... -->
 </head>
 <body>
     <h1>Athlete Performance Tracker</h1>
 
     <form id="searchForm">
-        <!-- Input fields for Athlete Name, Sport Category, and Gender -->
-        <div>
-            <label for="athleteName">Athlete Name:</label>
-            <input type="text" id="athleteName" placeholder="Enter Athlete Name">
-        </div>
-
-        <div>
-            <label for="sportCategory">Sport Category:</label>
-            <select id="sportCategory">
-                <option value="Football">Football</option>
-                <option value="Basketball">Basketball</option>
-                <!-- Add more sport categories as needed -->
-            </select>
-        </div>
-
-        <div>
-            <label for="gender">Gender:</label>
-            <select id="gender">
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <!-- Add more gender options as needed -->
-            </select>
-        </div>
-
-        <!-- Your existing buttons... -->
-        <button onclick="searchAthlete()">Search</button>
-        <button onclick="showRandomPerformances()">Random Search</button>
-        <button id="newTabButton" onclick="showNewTabPerformances()">New Tab</button>
+        <!-- Your existing form... -->
     </form>
 
     <div id="performanceList"></div>
 
     <table id="performanceTable">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Metric</th>
-                <th>Value</th>
-            </tr>
-        </thead>
-        <tbody id="performanceTableBody"></tbody>
+        <!-- Your existing table structure... -->
     </table>
+
+    <!-- Add a div for the result box -->
+    <div id="resultBox"></div>
 
     <script src="app.js"></script>
 </body>
