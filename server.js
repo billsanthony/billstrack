@@ -1,6 +1,14 @@
 const express = require('express');
+const admin = require('firebase-admin');
+const serviceAccount = require("/absolute/path/to/your/serviceAccountKey.json"); // Replace with your actual path
+
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Initialize Firebase Admin SDK
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
 
 // Express Middleware
 app.use(express.static('public'));
