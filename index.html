@@ -1,47 +1,74 @@
-// Function to show random performances for the new tab
-async function showNewTabPerformances() {
-    try {
-        // Add authentication check
-        const user = firebase.auth().currentUser;
-        if (user) {
-            // User is signed in
-            console.log('User is signed in:', user.uid);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athlete Performance Tracker</title>
+    <style>
+        /* Your existing styles... */
 
-            // Fetch athletes from the backend
-            await fetchAthletes();
-        } else {
-            // No user is signed in
-            console.log('No user is signed in');
+        /* Add some styling for input fields */
+        input {
+            padding: 8px;
+            margin-right: 20px;
+            width: 200px; /* Adjust width as needed */
         }
 
-        const randomAthlete = generateNewTabRandomAthlete();
+        /* Add styling for dropdowns */
+        select {
+            padding: 8px;
+            margin-right: 20px;
+            width: 200px; /* Adjust width as needed */
+        }
+    </style>
+</head>
+<body>
+    <h1>Athlete Performance Tracker</h1>
 
-        const performanceList = document.getElementById('performanceList');
-        performanceList.innerHTML = '';
+    <form id="searchForm">
+        <!-- Input fields for Athlete Name, Sport Category, and Gender -->
+        <div>
+            <label for="athleteName">Athlete Name:</label>
+            <input type="text" id="athleteName" placeholder="Enter Athlete Name">
+        </div>
 
-        const performanceTableBody = document.getElementById('performanceTableBody');
-        performanceTableBody.innerHTML = '';
+        <div>
+            <label for="sportCategory">Sport Category:</label>
+            <select id="sportCategory">
+                <option value="Football">Football</option>
+                <option value="Basketball">Basketball</option>
+                <!-- Add more sport categories as needed -->
+            </select>
+        </div>
 
-        // Display in a table
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td>${randomAthlete.name}</td>
-            <td>${randomAthlete.performance.metric}</td>
-            <td>${randomAthlete.performance.value}</td>
-        `;
-        performanceTableBody.appendChild(row);
-    } catch (error) {
-        console.error('Error showing new tab performances:', error);
-    }
-}
+        <div>
+            <label for="gender">Gender:</label>
+            <select id="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <!-- Add more gender options as needed -->
+            </select>
+        </div>
 
-// Function to fetch athletes from the backend
-const fetchAthletes = async () => {
-    try {
-        const response = await fetch('/api/athletes'); // Update with your backend endpoint
-        const data = await response.json();
-        console.log('Fetched athletes:', data);
-    } catch (error) {
-        console.error('Error fetching athletes:', error.message);
-    }
-};
+        <!-- Your existing buttons... -->
+        <button onclick="searchAthlete()">Search</button>
+        <button onclick="showRandomPerformances()">Random Search</button>
+        <button id="newTabButton" onclick="showNewTabPerformances()">New Tab</button>
+    </form>
+
+    <div id="performanceList"></div>
+
+    <table id="performanceTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Metric</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody id="performanceTableBody"></tbody>
+    </table>
+
+    <script src="app.js"></script>
+</body>
+</html>
