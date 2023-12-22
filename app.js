@@ -72,3 +72,13 @@ function displayResults(athletes) {
         resultBox.innerHTML += '<p>No results found.</p>';
     }
 }
+
+function generateRandomAthlete() {
+    const randomIndex = Math.floor(Math.random() * athletes.length);
+    return athletes[randomIndex];
+}
+
+function generateNewTabRandomAthlete() {
+    // Your existing code for generating random athlete data for the new tab
+    return generateRandomAthlete();
+}
