@@ -4,139 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Athlete Performance Tracker</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 20px;
-            background-color: #f5f5f5;
-        }
-
-        h1 {
-            color: #333;
-            text-align: center;
-        }
-
-        #searchForm {
-            margin-top: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        label {
-            margin-right: 10px;
-            font-weight: bold;
-        }
-
-        input {
-            padding: 8px;
-            margin-right: 20px;
-        }
-
-        button {
-            padding: 10px;
-            background-color: #4caf50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button#newTabButton {
-            padding: 10px;
-            background-color: #2196F3;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        #performanceList {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        #performanceTable {
-            margin-top: 20px;
-            width: 100%;
-            border-collapse: collapse;
-            background-color: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        #performanceTable th, #performanceTable td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Athlete Performance Tracker</h1>
+    <div id="app">
+        <h1>Athlete Performance Tracker</h1>
 
-    <form id="searchForm">
-        <div>
-            <label for="athleteNameDropdown">Athlete Name:</label>
-            <select id="athleteNameDropdown">
-                <!-- Options will be populated dynamically -->
-            </select>
-            <label for="athleteNameInput">Or enter name:</label>
-            <input type="text" id="athleteNameInput" placeholder="Enter Athlete Name">
-        </div>
+        <form id="searchForm">
+            <div>
+                <label for="athleteNameDropdown">Athlete Name:</label>
+                <select id="athleteNameDropdown"></select>
+                <label for="athleteNameInput">Or enter name:</label>
+                <input type="text" id="athleteNameInput" placeholder="Enter Athlete Name">
+            </div>
 
-        <div>
-            <label for="sportCategoryDropdown">Sport Category:</label>
-            <select id="sportCategoryDropdown">
-                <!-- Options will be populated dynamically -->
-            </select>
-            <label for="sportCategoryInput">Or enter sport:</label>
-            <input type="text" id="sportCategoryInput" placeholder="Enter Sport Category">
-        </div>
+            <div>
+                <label for="sportCategoryDropdown">Sport Category:</label>
+                <select id="sportCategoryDropdown"></select>
+                <label for="sportCategoryInput">Or enter sport:</label>
+                <input type="text" id="sportCategoryInput" placeholder="Enter Sport Category">
+            </div>
 
-        <div>
-            <label for="genderDropdown">Gender:</label>
-            <select id="genderDropdown">
-                <!-- Options will be populated dynamically -->
-            </select>
-            <label for="genderInput">Or enter gender:</label>
-            <input type="text" id="genderInput" placeholder="Enter Gender">
-        </div>
+            <div>
+                <label for="genderDropdown">Gender:</label>
+                <select id="genderDropdown"></select>
+                <label for="genderInput">Or enter gender:</label>
+                <input type="text" id="genderInput" placeholder="Enter Gender">
+            </div>
 
-        <button onclick="searchAthlete()">Search</button>
-        <button onclick="showRandomPerformances()">Random Search</button>
-        <button id="newTabButton" onclick="showNewTabPerformances()">New Tab</button>
-    </form>
+            <button id="searchButton">Search</button>
+            <button id="randomSearchButton">Random Search</button>
+            <button id="newTabButton">New Tab</button>
+        </form>
 
-    <div id="performanceList"></div>
+        <div id="performanceList"></div>
 
-    <table id="performanceTable">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Metric</th>
-                <th>Value</th>
-            </tr>
-        </thead>
-        <tbody id="performanceTableBody"></tbody>
-    </table>
+        <table id="performanceTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody id="performanceTableBody"></tbody>
+        </table>
 
-    <script src="app.js"></script>
+        <div id="resultBox"></div>
 
-    <script>
-        // Fetch random athlete names from the database
-        const randomNames = [
-            'Cristiano Ronaldo', 'Lionel Messi', 'Neymar Jr.', 'Robert Lewandowski', 'Mohamed Salah',
-            'Usain Bolt', 'Serena Williams', 'Michael Phelps', 'Simone Biles', 'Floyd Mayweather'
-        ];
-
-        // Populate the dropdown with random names
-        const randomNamesDropdown = document.getElementById('athleteNameDropdown');
-        randomNames.forEach(name => {
-            const option = document.createElement('option');
-            option.value = name;
-            option.textContent = name;
-            randomNamesDropdown.appendChild(option);
-        });
-    </script>
+        <script src="app.js"></script>
+    </div>
 </body>
 </html>
